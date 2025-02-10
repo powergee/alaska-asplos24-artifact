@@ -4,9 +4,11 @@
 
 src:
 	git clone https://github.com/redis/redis.git --recursive src
+	cd src && git checkout 9146ac050ba24c0e15246cc0271219614bd7ac54
 
 src-ad:
 	git clone https://github.com/redis/redis.git --recursive src-ad
+	cd src-ad && git checkout 9146ac050ba24c0e15246cc0271219614bd7ac54
 
 compilation:
 	$(MAKE) -C src USE_JEMALLOC=no CC=gclang OPTIMIZATION=-O0 "CFLAGS=-gdwarf-4 -Wno-strict-prototypes $(shell alaska-config --cflags)" "LDFLAGS=$(shell alaska-config --ldflags)"
